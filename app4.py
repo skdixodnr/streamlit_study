@@ -56,6 +56,27 @@ def main():
     else:
         st.text('안 배움3')
 
+    # multiselect
+    # 데이터 프레임의 컬럼이름을 보여주고,
+    # 유저가 컬럼을 선택하면
+    # 해당컬럼만 가져와서 데이터프레임을 보여주고 싶다.
+
+
+    column_list = st.multiselect('컬럼을 선택하세요', df.columns)
+
+    print(column_list)
+
+    # 선택한 컬럼으로 데이터 프레임을 보여주기!
+    st.dataframe(df[ column_list ])
+
+    age = st.slider('나이',min_value=10, max_value=110, value= 50)
+
+    st.text('나이는' + str(age) + '입니다.')
+
+    with st.expander('hello'):
+        st.text('안녕하세요')
+
+
 
 if __name__ == '__main__' :
     main()
